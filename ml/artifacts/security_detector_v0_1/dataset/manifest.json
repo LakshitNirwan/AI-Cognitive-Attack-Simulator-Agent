@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "experiment": {
+    "name": "aicas_security_detector_v0_1",
+    "seed": 42,
+    "task": "jailbreakbench_behavior_classification",
+    "input_column": "goal",
+    "label_column": "behavior_class",
+    "labels": {
+      "benign": 0,
+      "harmful": 1
+    }
+  },
+  "source": {
+    "dataset": "JailbreakBench",
+    "decision": "CONDITIONAL_TASK_SPECIFIC_USE",
+    "task_scope": "jailbreakbench_behavior_classification",
+    "path": "datasets\\jailbreak\\processed\\jailbreakbench_master.csv",
+    "sha256": "e5548ed13b191c56483aba0e2e3a32e9c0947ee0def6195bb17b5bb5aad5855c",
+    "component_files": [
+      {
+        "path": "datasets\\jailbreak\\raw\\benign-behaviors.csv",
+        "sha256": "3cda234d21a991fa309bbfea4b6d9dae31ccdf8e9d452424b6a983e4fdc33468"
+      },
+      {
+        "path": "datasets\\jailbreak\\raw\\harmful-behaviors.csv",
+        "sha256": "4a8ec6832056b631eb092dccc60d37a61c3d441268268888b3d006288afeffa1"
+      }
+    ],
+    "source_revision": "886acc352a31533ffbcf4ef22c744658688086fc",
+    "source_revision_status": "pinned_upstream_bytes_verified",
+    "upstream_license_declared": "mit",
+    "license_usage_status": "MIT_declared_by_upstream; retain source attribution and review before redistribution",
+    "rows": 200
+  },
+  "transformation": {
+    "input_column": "goal",
+    "label_column": "behavior_class",
+    "normalization_for_grouping": "strip, lowercase, collapse internal whitespace",
+    "group_id": "sha256 of normalized goal",
+    "raw_source_modified": false,
+    "pinned_upstream_verification": "datasets/audit/JAILBREAKBENCH_PINNED_UPSTREAM_VERIFICATION.json",
+    "license_usage_limitation": "Upstream card declares MIT for JBB-Behaviors; preserve source attribution and review constituent-source terms before redistribution.",
+    "excluded_sources": {
+      "S-Labs/prompt-injection-dataset": "Blocked because the byte-verified pinned upstream revision contains conflicting labels; never included in this task.",
+      "HarmBench": "Not included in this task; known exact overlaps require grouped handling before any combined-source evaluation.",
+      "IndiBias": "Evaluation-first; not included in this task.",
+      "DefAn": "Different reference-grounded task; not included in this task.",
+      "AgentDojo": "Stateful agentic evaluation; not included in this text-classification task."
+    }
+  },
+  "splits": {
+    "train": {
+      "rows": 120,
+      "label_counts": {
+        "benign": 60,
+        "harmful": 60
+      },
+      "record_ids_sha256": "1583f27d77821eb448be34c47dd11d617b241d8882cca231db0bdf22777a028a",
+      "group_ids_sha256": "a8d85c4e3f6bbea1c57505f67d4e3e8dc7c9cfc935b76c590938ebb5e203be8b"
+    },
+    "validation": {
+      "rows": 40,
+      "label_counts": {
+        "benign": 20,
+        "harmful": 20
+      },
+      "record_ids_sha256": "daa61563cf232b8603fdd2a3f061fc9e3c5f5595f24428920126800f994dd660",
+      "group_ids_sha256": "2e01a0439345e281154bbd662c4da790bb5b54de68d61e554fe26111ab0bd355"
+    },
+    "test": {
+      "rows": 40,
+      "label_counts": {
+        "benign": 20,
+        "harmful": 20
+      },
+      "record_ids_sha256": "425d40c238b2a435ac493dc7e37807a340721e38948cc3c2688e30752e094929",
+      "group_ids_sha256": "ed1703f3871dfa1e5cbc192f5f332d67b782a03220a6da7c85de0c4df6f6e7cc"
+    }
+  },
+  "input_policy": {
+    "model_input": "goal",
+    "target_used_as_input": false,
+    "label_source": "JailbreakBench.behavior_class",
+    "split_method": "StratifiedGroupKFold: 5 folds; 3 train, 1 validation, 1 test"
+  }
+}

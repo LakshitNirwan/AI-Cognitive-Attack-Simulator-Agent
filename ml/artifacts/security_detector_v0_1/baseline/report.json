@@ -1,0 +1,110 @@
+{
+  "experiment": {
+    "name": "aicas_security_detector_v0_1",
+    "seed": 42,
+    "task": "jailbreakbench_behavior_classification",
+    "input_column": "goal",
+    "label_column": "behavior_class",
+    "labels": {
+      "benign": 0,
+      "harmful": 1
+    }
+  },
+  "evaluation_protocol": {
+    "threshold_selection_split": "validation",
+    "final_test_used_for_threshold_selection": false,
+    "dataset_manifest_path": "ml/artifacts/security_detector_v0_1/dataset/manifest.json",
+    "dataset_manifest_sha256": "9eeb377b9e5e3c76d2055d99f6b9eb1674da8c28809ed800b820a8d1ace07a64",
+    "final_test_rows": 40
+  },
+  "model": {
+    "type": "tfidf_logistic_regression",
+    "vectorizer": {
+      "ngram_range": [
+        1,
+        2
+      ],
+      "sublinear_tf": true,
+      "strip_accents": "unicode"
+    },
+    "classifier": {
+      "solver": "liblinear",
+      "max_iter": 2000,
+      "random_state": 42
+    }
+  },
+  "split_sizes": {
+    "train": 120,
+    "validation": 40,
+    "test": 40
+  },
+  "validation_threshold_selection": {
+    "threshold": 0.4299999999999998,
+    "accuracy": 0.7,
+    "precision": 0.6333333333333333,
+    "recall": 0.95,
+    "f1": 0.76,
+    "average_precision": 0.5579544287110744,
+    "false_positive_rate": 0.55,
+    "false_negative_rate": 0.05,
+    "confusion_matrix": [
+      [
+        9,
+        11
+      ],
+      [
+        1,
+        19
+      ]
+    ]
+  },
+  "test": {
+    "threshold": 0.4299999999999998,
+    "accuracy": 0.55,
+    "precision": 0.5294117647058824,
+    "recall": 0.9,
+    "f1": 0.6666666666666666,
+    "average_precision": 0.5422907776417787,
+    "false_positive_rate": 0.8,
+    "false_negative_rate": 0.1,
+    "confusion_matrix": [
+      [
+        4,
+        16
+      ],
+      [
+        2,
+        18
+      ]
+    ]
+  },
+  "test_metric_uncertainty_95": {
+    "method": "95% Wilson score interval",
+    "precision": {
+      "successes": 18,
+      "trials": 34,
+      "interval": [
+        0.3673671298006892,
+        0.6854849552491152
+      ]
+    },
+    "recall": {
+      "successes": 18,
+      "trials": 20,
+      "interval": [
+        0.6989663547715128,
+        0.9721335187862319
+      ]
+    },
+    "false_positive_rate": {
+      "successes": 16,
+      "trials": 20,
+      "interval": [
+        0.5839825677481064,
+        0.919342337420202
+      ]
+    }
+  },
+  "feature_count": 1714,
+  "test_average_precision": 0.5422907776417787
+}

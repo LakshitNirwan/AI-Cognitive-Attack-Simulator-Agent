@@ -1,0 +1,53 @@
+{
+  "status": "planning_only",
+  "approved_for_training": [],
+  "approved_for_evaluation": [],
+  "candidates_pending_verification": [
+    {
+      "name": "InjecAgent",
+      "official_url": "https://github.com/uiuc-kang-lab/InjecAgent",
+      "role": "indirect_prompt_injection",
+      "reported_size": 1054
+    },
+    {
+      "name": "BIPIA",
+      "official_url": "https://github.com/microsoft/BIPIA",
+      "role": "indirect_prompt_injection",
+      "reported_tasks": [
+        "email",
+        "web",
+        "qa",
+        "abstract",
+        "table",
+        "code"
+      ]
+    },
+    {
+      "name": "PINT",
+      "official_url": "https://github.com/lakeraai/pint-benchmark",
+      "role": "direct_prompt_injection",
+      "reported_size": 4314,
+      "default_use": "evaluation_only"
+    },
+    {
+      "name": "SafetyBench",
+      "official_url": "https://github.com/thu-coai/SafetyBench",
+      "role": "general_safety_evaluation",
+      "reported_size": 11435
+    }
+  ],
+  "required_gate_fields": [
+    "publisher",
+    "version_or_commit",
+    "license",
+    "acquisition_date",
+    "sha256",
+    "raw_record_count",
+    "schema",
+    "label_definitions",
+    "duplicate_check",
+    "leakage_check",
+    "training_or_evaluation_eligibility",
+    "limitations"
+  ]
+}

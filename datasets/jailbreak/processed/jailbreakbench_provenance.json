@@ -1,0 +1,32 @@
+{
+  "dataset": "JailbreakBench",
+  "source_files": [
+    "benign-behaviors.csv",
+    "harmful-behaviors.csv"
+  ],
+  "total_records": 200,
+  "benign_records": 100,
+  "harmful_records": 100,
+  "unique_record_ids": 200,
+  "duplicate_record_ids": 0,
+  "raw_files_modified": false,
+  "processing_notes": [
+    "Benign and harmful source files were combined into one processed dataset.",
+    "The original behavior class was preserved.",
+    "Original source indices were preserved.",
+    "Goal, Target, Behavior, Category, and Source were preserved.",
+    "No new attack labels were generated.",
+    "Raw source files were not modified."
+  ],
+  "upstream_dataset_id": "JailbreakBench/JBB-Behaviors",
+  "upstream_url": "https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors",
+  "upstream_revision": "886acc352a31533ffbcf4ef22c744658688086fc",
+  "upstream_revision_verified": true,
+  "upstream_license_declared": "MIT",
+  "pinned_component_verification": "datasets/audit/JAILBREAKBENCH_PINNED_UPSTREAM_VERIFICATION.json",
+  "pinned_component_hashes": {
+    "datasets/jailbreak/raw/benign-behaviors.csv": "3cda234d21a991fa309bbfea4b6d9dae31ccdf8e9d452424b6a983e4fdc33468",
+    "datasets/jailbreak/raw/harmful-behaviors.csv": "4a8ec6832056b631eb092dccc60d37a61c3d441268268888b3d006288afeffa1"
+  },
+  "redistribution_note": "The publisher declares MIT for JBB-Behaviors. The dataset includes source material from prior datasets; retain attribution and review terms before redistributing combined or derived artifacts."
+}

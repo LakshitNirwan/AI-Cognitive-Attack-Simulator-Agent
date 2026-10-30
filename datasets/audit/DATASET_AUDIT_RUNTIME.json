@@ -1,0 +1,84 @@
+{
+  "JailbreakBench": {
+    "rows": 200,
+    "columns": [
+      "record_id",
+      "source_dataset",
+      "source_file",
+      "behavior_class",
+      "original_index",
+      "goal",
+      "target",
+      "behavior",
+      "category",
+      "source"
+    ],
+    "null_cells": 0,
+    "duplicate_rows": 0,
+    "sha256": "e5548ed13b191c56483aba0e2e3a32e9c0947ee0def6195bb17b5bb5aad5855c"
+  },
+  "HarmBench": {
+    "rows": 400,
+    "columns": [
+      "record_id",
+      "source_dataset",
+      "source_file",
+      "benchmark_split",
+      "behavior_id",
+      "behavior",
+      "functional_category",
+      "semantic_category",
+      "tags",
+      "context_string"
+    ],
+    "null_cells": 500,
+    "duplicate_rows": 0,
+    "sha256": "847b50cd5e3b4d6a3814cb204320a030a1518dcb2599209e4f7fbe05a29d16d1"
+  },
+  "IndiBias": {
+    "rows": 561,
+    "columns": [
+      "record_id",
+      "source_dataset",
+      "source_file",
+      "dataset_scope",
+      "source_row_id",
+      "original_index",
+      "bias_type",
+      "stereo_antistereo",
+      "english_more",
+      "english_less",
+      "hindi_more",
+      "hindi_less"
+    ],
+    "null_cells": 0,
+    "duplicate_rows": 0,
+    "sha256": "b124726c588132261020619f7f66a9093194f70d3c17d9dc4b450ea70244b7ce"
+  },
+  "DefAn": {
+    "rows": 70793,
+    "columns": [
+      "record_id",
+      "source",
+      "source_file",
+      "domain",
+      "question",
+      "question_type",
+      "original_reference_answer",
+      "reference_answer",
+      "answer_source",
+      "reference_answer_available",
+      "verification_status"
+    ],
+    "null_cells": 3240,
+    "duplicate_rows": 0,
+    "sha256": "c9285bc04e2a1e38e006cdbfcebfb8c61e1a4819a72b1c5cbb9ae2d122fb3bb2"
+  },
+  "AgentDojo": {
+    "scenarios": 35,
+    "sha256": "94d1fc5d57893eb3834bd584f2a1636bb130f9353f648bbed2e54f40dcacc4e0"
+  },
+  "cross_dataset": {
+    "JailbreakBench_harmful_vs_HarmBench_behavior_exact_normalized_overlap": 9
+  }
+}

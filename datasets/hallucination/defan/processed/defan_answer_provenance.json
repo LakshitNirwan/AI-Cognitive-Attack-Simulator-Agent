@@ -1,0 +1,18 @@
+{
+  "dataset": "DefAn",
+  "source": "DefAn public QA domains",
+  "domains": 8,
+  "raw_records": 70793,
+  "records_with_original_defan_answer": 69713,
+  "records_without_original_answer": 1080,
+  "aicas_generated_answers": 0,
+  "raw_files_modified": false,
+  "processing_notes": [
+    "Original raw DefAn files were not modified.",
+    "Questions with missing reference answers were retained.",
+    "Missing reference answers were not fabricated.",
+    "AICAS-generated answers will be added only after independent generation and verification.",
+    "The Unnamed: 0 CSV index column was not included in the processed schema.",
+    "Paraphrased/repeated questions were retained."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "audit_type": "pinned_upstream_bytes_and_conflict_verification",
+  "revision": "002a9dd",
+  "upstream_url": "https://huggingface.co/datasets/S-Labs/prompt-injection-dataset/resolve/002a9dd/data/train.csv",
+  "status": "PINNED_SOURCE_HAS_CONFLICTS",
+  "training_eligible": false,
+  "byte_identical": true,
+  "same_conflict_fingerprints": true,
+  "local": {
+    "sha256": "bab012fec95d4214599b18777fd6efc5cc5e9545354df581880aeca5c1d487d7",
+    "rows": 11089,
+    "conflicting_normalized_text_count": 1,
+    "conflicts": [
+      {
+        "normalized_text_sha256": "e40e826126d351a54c05e81baf96ddd91ce2a92a0abe70686450bb2ab54eb1e2",
+        "labels": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "upstream": {
+    "sha256": "bab012fec95d4214599b18777fd6efc5cc5e9545354df581880aeca5c1d487d7",
+    "rows": 11089,
+    "conflicting_normalized_text_count": 1,
+    "conflicts": [
+      {
+        "normalized_text_sha256": "e40e826126d351a54c05e81baf96ddd91ce2a92a0abe70686450bb2ab54eb1e2",
+        "labels": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "decision_note": "This check verifies byte identity and contradiction fingerprints only. Even if upstream bytes match, a conflicting-label source remains blocked. This script never modifies either source file.",
+  "local_file": "C:\\Users\\VICTUS\\Documents\\Codex\\2026-10-17\\aicas-project-handoff-preserve-existing-work\\work\\aicas_archive_copy\\aicas_full_project_build_v0_1_fix\\datasets\\raw\\external\\slabs_prompt_injection\\train.csv"
+}

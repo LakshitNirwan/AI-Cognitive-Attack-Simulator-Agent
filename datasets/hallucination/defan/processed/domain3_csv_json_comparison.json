@@ -1,0 +1,11 @@
+{
+  "csv_file": "D:\\AI-Cognitive-Attack-Simulator-Agent\\datasets\\hallucination\\defan\\raw\\QA_domain_3_public.csv",
+  "json_file": "D:\\AI-Cognitive-Attack-Simulator-Agent\\datasets\\hallucination\\defan\\raw\\QA_domain_3_public.json",
+  "csv_records": 9795,
+  "csv_missing_answers": 1080,
+  "json_records": 9795,
+  "missing_questions_found_in_json": 1080,
+  "answers_recovered_from_json": 0,
+  "answers_also_missing_in_json": 1080,
+  "questions_not_found_in_json": 0
+}

@@ -1,0 +1,22 @@
+{
+  "experiment": {
+    "name": "aicas_security_detector_v0_1",
+    "seed": 42,
+    "task": "jailbreakbench_behavior_classification",
+    "input_column": "goal",
+    "label_column": "behavior_class",
+    "labels": {
+      "benign": 0,
+      "harmful": 1
+    }
+  },
+  "dataset_manifest_sha256": "9eeb377b9e5e3c76d2055d99f6b9eb1674da8c28809ed800b820a8d1ace07a64",
+  "model_name": "answerdotai/ModernBERT-base",
+  "model_revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+  "device": "cpu",
+  "seed": 42,
+  "epochs": 3,
+  "batch_size": 8,
+  "learning_rate": 2e-05,
+  "best_validation_f1_at_0_50": 0.7307692307692307
+}

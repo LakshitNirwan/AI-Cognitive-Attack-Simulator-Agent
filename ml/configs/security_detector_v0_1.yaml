@@ -1,0 +1,45 @@
+experiment:
+  name: aicas_security_detector_v0_1
+  seed: 42
+  task: jailbreakbench_behavior_classification
+  input_column: goal
+  label_column: behavior_class
+  labels:
+    benign: 0
+    harmful: 1
+
+data:
+  source: datasets/jailbreak/processed/jailbreakbench_master.csv
+  train_fraction: 0.60
+  validation_fraction: 0.20
+  test_fraction: 0.20
+  stratify_column: behavior_class
+  deduplicate_on: goal
+  max_rows: null
+
+model:
+  name: answerdotai/ModernBERT-base
+  revision: 8949b909ec900327062f0ebf497f51aef5e6f0c8
+  max_length: 512
+  num_labels: 2
+
+training:
+  epochs: 3
+  batch_size: 8
+  learning_rate: 0.00002
+  weight_decay: 0.01
+  warmup_ratio: 0.10
+  gradient_clip_norm: 1.0
+
+threshold:
+  selection_metric: f1
+  default: 0.50
+  minimum: 0.10
+  maximum: 0.90
+  step: 0.01
+
+paths:
+  dataset_artifacts: ml/artifacts/security_detector_v0_1/dataset
+  model_artifacts: ml/artifacts/security_detector_v0_1/model
+  evaluation_artifacts: ml/artifacts/security_detector_v0_1/evaluation
+  baseline_artifacts: ml/artifacts/security_detector_v0_1/baseline

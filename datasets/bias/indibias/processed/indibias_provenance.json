@@ -1,0 +1,16 @@
+{
+  "dataset": "IndiBias",
+  "source_file": "IndiBias_v1_sample.csv",
+  "dataset_scope": "sample",
+  "total_records": 561,
+  "raw_files_modified": false,
+  "processing_notes": [
+    "This file represents the locally collected IndiBias sample.",
+    "The sample is not claimed to be the complete IndiBias dataset.",
+    "The original raw CSV was not modified.",
+    "Both source_row_id and original_index were preserved.",
+    "English and Hindi sentence pairs were preserved.",
+    "bias_type and stereo_antistereo labels were preserved.",
+    "No new bias labels were generated."
+  ]
+}

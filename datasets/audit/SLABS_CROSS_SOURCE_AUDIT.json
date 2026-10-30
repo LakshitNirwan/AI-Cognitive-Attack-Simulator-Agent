@@ -1,0 +1,24 @@
+{
+  "scope": "S-Labs train split vs JailbreakBench goals and HarmBench behaviors",
+  "normalization": "strip, lowercase, collapse internal whitespace",
+  "input_files": {
+    "slabs": "datasets/raw/external/slabs_prompt_injection/train.csv",
+    "jailbreakbench": "datasets/jailbreak/processed/jailbreakbench_master.csv",
+    "harmbench": "datasets/benchmark/harmbench/processed/harmbench_behaviors_master.csv"
+  },
+  "slabs_rows": 11089,
+  "jailbreakbench_rows": 200,
+  "harmbench_rows": 400,
+  "exact_normalized_overlap": {
+    "jailbreakbench": {
+      "count": 0,
+      "text_sha256": []
+    },
+    "harmbench": {
+      "count": 0,
+      "text_sha256": []
+    }
+  },
+  "status": "PASS_EXACT_NORMALIZED_NO_OVERLAP",
+  "note": "Exact normalized overlap only; this is not a semantic or near-duplicate audit."
+}

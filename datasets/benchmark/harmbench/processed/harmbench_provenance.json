@@ -1,0 +1,25 @@
+{
+  "dataset": "HarmBench",
+  "source": "HarmBench behavior text benchmark",
+  "source_files": [
+    "harmbench_behaviors_text_all.csv",
+    "harmbench_behaviors_text_test.csv",
+    "harmbench_behaviors_text_val.csv"
+  ],
+  "canonical_source": "harmbench_behaviors_text_all.csv",
+  "total_records": 400,
+  "unique_behavior_ids": 400,
+  "test_records": 320,
+  "validation_records": 80,
+  "duplicate_behavior_ids": 0,
+  "raw_files_modified": false,
+  "processing_notes": [
+    "The all file was used as the canonical 400-record source.",
+    "Test and validation membership was reconstructed using BehaviorID.",
+    "Test and validation records were not duplicated.",
+    "Repeated Behavior text was retained because BehaviorID is unique.",
+    "Missing Tags values were preserved as missing.",
+    "Missing ContextString values were preserved as missing.",
+    "No new semantic or functional labels were generated."
+  ]
+}

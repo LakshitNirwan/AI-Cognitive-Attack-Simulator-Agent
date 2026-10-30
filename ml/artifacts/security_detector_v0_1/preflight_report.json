@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-18T06:20:04.805958+00:00",
+  "python_version": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "mode": "forward_backward_smoke_test",
+  "training_completed": false,
+  "s_labs_used": false,
+  "inputs": {
+    "config_path": "D:\\AI-Cognitive-Attack-Simulator-Agent\\ml\\configs\\security_detector_v0_1.yaml",
+    "config_sha256": "0d46e78458a14ecbbffeba825e92ab3596d41ee5037cb0d3593f218f59c4b458",
+    "task": "jailbreakbench_behavior_classification",
+    "model_name": "answerdotai/ModernBERT-base",
+    "model_revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+    "max_length_configured": 512,
+    "num_labels": 2,
+    "train_path": "D:\\AI-Cognitive-Attack-Simulator-Agent\\ml\\artifacts\\security_detector_v0_1\\dataset\\train.jsonl",
+    "train_sha256": "0364a3ac747b059407237dde75e3c42181e0d046e85d69b40655c0dacb38c28b",
+    "train_rows": 120,
+    "train_label_counts": {
+      "0": 60,
+      "1": 60
+    },
+    "dataset_manifest": {
+      "exists": true,
+      "sha256": "9eeb377b9e5e3c76d2055d99f6b9eb1674da8c28809ed800b820a8d1ace07a64"
+    },
+    "source_path": "D:\\AI-Cognitive-Attack-Simulator-Agent\\datasets\\jailbreak\\processed\\jailbreakbench_master.csv",
+    "source_exists": true,
+    "raw_source_unchanged_by_this_check": true
+  },
+  "input_validation_status": "PASSED",
+  "runtime_smoke_test": {
+    "status": "PASSED",
+    "device": "cpu",
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.15.1",
+    "cuda_available": false,
+    "cuda_version": null,
+    "sample_label": 0,
+    "sample_token_count": 18,
+    "loss": 1.2022322416305542,
+    "parameters_with_gradients": 138,
+    "optimizer_step_completed": true,
+    "model_name": "answerdotai/ModernBERT-base",
+    "model_revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+    "local_files_only": false
+  },
+  "status": "PASSED"
+}

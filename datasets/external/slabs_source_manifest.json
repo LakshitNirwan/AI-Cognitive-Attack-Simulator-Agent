@@ -1,0 +1,52 @@
+{
+  "dataset_name": "S-Labs/prompt-injection-dataset",
+  "publisher": "S-Labs",
+  "source_url": "https://huggingface.co/datasets/S-Labs/prompt-injection-dataset",
+  "license": "MIT",
+  "upstream_revision": "002a9dd",
+  "task": "direct_prompt_injection_detection",
+  "schema": {
+    "text": "string",
+    "label": "int"
+  },
+  "label_mapping": {
+    "0": "benign",
+    "1": "injection"
+  },
+  "expected_splits": {
+    "train": 11089,
+    "validation": 2101,
+    "test": 2101
+  },
+  "download_urls": {
+    "train": "https://huggingface.co/datasets/S-Labs/prompt-injection-dataset/resolve/main/data/train.csv",
+    "validation": "https://huggingface.co/datasets/S-Labs/prompt-injection-dataset/resolve/main/data/validation.csv",
+    "test": "https://huggingface.co/datasets/S-Labs/prompt-injection-dataset/resolve/main/data/test.csv"
+  },
+  "status": "blocked_conflicting_labels_pinned_upstream_verified",
+  "notes": [
+    "Do not merge blindly with JailbreakBench/HarmBench.",
+    "Keep upstream test split independent from AICAS training.",
+    "Run cross-source duplicate/leakage analysis before model training.",
+    "This source is English-only.",
+    "A bounded public upstream review did not find a documented resolution for the conflicting-label text; see datasets/audit/SLABS_UPSTREAM_CONFLICT_INVESTIGATION.md.",
+    "Pinned upstream bytes were verified on 2026-10-17 and match the local raw train.csv; both contain the same conflicting-label text. See datasets/audit/SLABS_PINNED_UPSTREAM_VERIFICATION.json."
+  ],
+  "training_eligible": false,
+  "audit_findings": {
+    "conflicting_label_texts_in_supplied_train_split": 1,
+    "policy": "Do not relabel or remove conflicting records; pinned upstream byte verification is required, and matching bytes do not by themselves clear the source.",
+    "csv_rows_including_header": [
+      2857,
+      4626
+    ],
+    "zero_based_dataframe_indices": [
+      2855,
+      4624
+    ],
+    "observed_text_sha256": "8efd9fb9a175672af4131f3ca57edf74566ea218b34590530b2d2ea533b3764c",
+    "raw_train_csv_sha256": "bab012fec95d4214599b18777fd6efc5cc5e9545354df581880aeca5c1d487d7",
+    "upstream_resolution": "no authoritative label clarification found in bounded public review; source remains blocked",
+    "pinned_upstream_byte_verification": "verified_byte_identical_with_conflicts_on_2026-10-17"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "generated_utc": "2026-10-08T16:53:22.430725+00:00",
+  "project_root": "aicas_full_project_build_v0_1_fix",
+  "raw_files_unchanged": true,
+  "datasets": {
+    "JailbreakBench": {
+      "rows": 200,
+      "labels": {
+        "benign": 100,
+        "harmful": 100
+      },
+      "null_cells": 0,
+      "duplicate_rows": 0,
+      "unique_record_ids": 200,
+      "duplicate_normalized_goals": 0,
+      "training_eligibility": "eligible for a specialist harmful/benign behavior task, with source-aware split controls",
+      "evaluation_eligibility": "yes",
+      "risks": [
+        "harmful goals overlap HarmBench at 9 normalized exact matches",
+        "dataset itself states some behaviors are sourced from HarmBench/AdvBench"
+      ]
+    },
+    "HarmBench": {
+      "rows": 400,
+      "null_cells": 500,
+      "duplicate_rows": 0,
+      "unique_behavior_ids": 400,
+      "split_counts": {
+        "test": 320,
+        "validation": 80
+      },
+      "training_eligibility": "eligible for task-specific harmful-behavior modeling, but not as a generic prompt-injection label",
+      "evaluation_eligibility": "yes",
+      "risks": [
+        "local 400-row acquisition is smaller than the current official repository's all file; pin exact source version/commit before expansion",
+        "missing tags/context are present and should not be imputed as labels"
+      ]
+    },
+    "IndiBias": {
+      "rows": 561,
+      "null_cells": 0,
+      "duplicate_rows": 0,
+      "unique_record_ids": 561,
+      "stereo_antistereo": {
+        "stereo": 454,
+        "antistereo": 107
+      },
+      "training_eligibility": "evaluation-first; supervised training requires a clearly defined bias task and complete source scope",
+      "evaluation_eligibility": "yes",
+      "risks": [
+        "local file is explicitly a sample, not the complete published dataset",
+        "stereo/anti-stereo imbalance 454/107"
+      ]
+    },
+    "DefAn": {
+      "rows": 70793,
+      "null_cells": 3240,
+      "duplicate_rows": 0,
+      "unique_record_ids": 70793,
+      "reference_answer_available": {
+        "true": 69713,
+        "false": 1080
+      },
+      "duplicate_normalized_questions": 648,
+      "training_eligibility": "only records with original reference answers and a defined factuality target; do not fabricate the 1,080 missing answers",
+      "evaluation_eligibility": "yes, especially as an output-reliability benchmark",
+      "risks": [
+        "1,080 records have no original answer",
+        "648 normalized duplicate questions retained; deduplicate/group before train-test splitting"
+      ]
+    },
+    "AgentDojo": {
+      "rows": 35,
+      "unique_task_ids": 14,
+      "training_eligibility": "evaluation-first",
+      "evaluation_eligibility": "yes",
+      "risks": [
+        "35 scenarios are too small to serve as sole supervised training corpus",
+        "task success depends on agent/environment state, so flat text classification would lose semantics"
+      ]
+    }
+  },
+  "cross_dataset_checks": {
+    "JailbreakBench_harmful_goal_vs_HarmBench_behavior_normalized_exact_overlap": 9
+  },
+  "source_registry": {
+    "JailbreakBench": {
+      "official_source": "https://github.com/JailbreakBench/jailbreakbench",
+      "paper_or_release": "NeurIPS 2024 Datasets and Benchmarks Track",
+      "local_files": [
+        "datasets/jailbreak/raw/benign-behaviors.csv",
+        "datasets/jailbreak/raw/harmful-behaviors.csv"
+      ],
+      "source_verified": "yes",
+      "license_verified": "MIT (repository codebase; dataset licensing should be treated separately if redistributed)",
+      "notes": "Official repository describes JBB-Behaviors as 200 distinct benign and misuse behaviors. Local raw files contain 100 benign + 100 harmful."
+    },
+    "HarmBench": {
+      "official_source": "https://github.com/centerforaisafety/HarmBench",
+      "paper_or_release": "HarmBench 1.0 / NeurIPS 2024-era benchmark",
+      "local_files": [
+        "datasets/benchmark/harmbench/raw/harmbench_behaviors_text_all.csv",
+        "datasets/benchmark/harmbench/raw/harmbench_behaviors_text_val.csv",
+        "datasets/benchmark/harmbench/raw/harmbench_behaviors_text_test.csv"
+      ],
+      "source_verified": "yes",
+      "license_verified": "MIT (repository)",
+      "notes": "Local canonical file contains 400 behaviors and reconstructs 80 validation + 320 test membership. Current official repository contains a larger all file; local acquisition must be version/commit pinned before expansion."
+    },
+    "IndiBias": {
+      "official_source": "https://github.com/sahoonihar/IndiBias",
+      "paper_or_release": "NAACL 2024",
+      "local_files": [
+        "datasets/bias/indibias/raw/IndiBias_v1_sample.csv"
+      ],
+      "source_verified": "yes",
+      "license_verified": "not established from the repository page; verify before redistribution",
+      "notes": "Official paper describes 800 sentence pairs + 300 tuples; local file is explicitly a sample of 561 records. Do not call it the complete dataset."
+    },
+    "DefAn": {
+      "official_source": "https://github.com/ashikiut/DefAn",
+      "paper_or_release": "DefAn, Information 2025",
+      "local_files": [
+        "datasets/hallucination/defan/raw/QA_domain_1_public.csv",
+        "datasets/hallucination/defan/raw/QA_domain_2_public.csv",
+        "datasets/hallucination/defan/raw/QA_domain_3_public.csv",
+        "datasets/hallucination/defan/raw/QA_domain_3_public.json",
+        "datasets/hallucination/defan/raw/QA_domain_4_public.csv",
+        "datasets/hallucination/defan/raw/QA_domain_5_public.csv",
+        "datasets/hallucination/defan/raw/QA_domain_6_public.csv",
+        "datasets/hallucination/defan/raw/QA_domain_7_public.csv",
+        "datasets/hallucination/defan/raw/QA_domain_8_public.csv"
+      ],
+      "source_verified": "yes",
+      "license_verified": "not established from the repository page; verify before redistribution",
+      "notes": "Official repository describes public and hidden segments and >75,000 total samples. Local public collection has 70,793 rows; 1,080 have no original reference answer and remain unlabeled for supervised factuality training."
+    },
+    "AgentDojo": {
+      "official_source": "https://github.com/ethz-spylab/agentdojo",
+      "paper_or_release": "NeurIPS 2024 Datasets and Benchmarks Track; local metadata v1.2.2",
+      "local_files": [
+        "datasets/benchmark/agentdojo/raw/agentdojo_v1_2_2_injection_tasks.json"
+      ],
+      "source_verified": "yes",
+      "license_verified": "MIT",
+      "notes": "Local file contains 35 injection scenarios and preserves ground-truth/security code metadata. Treat primarily as evaluation until a larger task-specific supervised corpus is justified."
+    }
+  }
+}

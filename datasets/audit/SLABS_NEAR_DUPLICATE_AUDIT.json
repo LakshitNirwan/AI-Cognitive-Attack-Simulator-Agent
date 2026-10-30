@@ -1,0 +1,41 @@
+{
+  "audit_type": "exact_and_tfidf_char_ngram_near_duplicate_discovery",
+  "status": "REVIEW_REQUIRED",
+  "training_eligible": false,
+  "threshold": 0.82,
+  "method": "character n-gram TF-IDF (3-5) cosine similarity; candidate discovery only",
+  "input_files": {
+    "slabs": "datasets/raw/external/slabs_prompt_injection/train.csv",
+    "jailbreakbench": "datasets/jailbreak/processed/jailbreakbench_master.csv",
+    "harmbench": "datasets/benchmark/harmbench/processed/harmbench_behaviors_master.csv"
+  },
+  "input_columns": {
+    "slabs": "text",
+    "jailbreakbench": "goal",
+    "harmbench": "behavior"
+  },
+  "row_counts_after_empty_removal": {
+    "slabs": 11089,
+    "jailbreakbench": 200,
+    "harmbench": 400
+  },
+  "pairs": {
+    "jailbreakbench": {
+      "exact_normalized_overlap": {
+        "count": 0,
+        "text_sha256": []
+      },
+      "near_duplicate_candidate_count": 0,
+      "near_duplicate_candidates": []
+    },
+    "harmbench": {
+      "exact_normalized_overlap": {
+        "count": 0,
+        "text_sha256": []
+      },
+      "near_duplicate_candidate_count": 0,
+      "near_duplicate_candidates": []
+    }
+  },
+  "decision_note": "Similarity scores are candidate signals, not proof of leakage. Review matches manually. This report does not approve S-Labs for training and does not change any source file."
+}

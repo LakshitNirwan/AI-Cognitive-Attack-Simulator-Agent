@@ -1,0 +1,32 @@
+{
+  "audit_type": "pinned_upstream_dataset_component_byte_verification",
+  "dataset_id": "JailbreakBench/JBB-Behaviors",
+  "upstream_url": "https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors",
+  "upstream_revision": "886acc352a31533ffbcf4ef22c744658688086fc",
+  "api_revision_sha": "886acc352a31533ffbcf4ef22c744658688086fc",
+  "verified_at_utc": "2026-10-17T15:03:23Z",
+  "license_declared_by_upstream_card": "mit",
+  "license_evidence_url": "https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors",
+  "license_scope_note": "The publisher declares MIT for JBB-Behaviors. The dataset card documents source material from prior datasets; preserve source attribution and review terms before redistributing combined/derived datasets.",
+  "status": "PINNED_BYTES_VERIFIED",
+  "byte_identical": true,
+  "raw_files_modified": false,
+  "files": [
+    {
+      "path": "datasets/jailbreak/raw/benign-behaviors.csv",
+      "upstream_url": "https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors/resolve/886acc352a31533ffbcf4ef22c744658688086fc/data/benign-behaviors.csv",
+      "bytes": 20570,
+      "local_sha256": "3cda234d21a991fa309bbfea4b6d9dae31ccdf8e9d452424b6a983e4fdc33468",
+      "upstream_sha256": "3cda234d21a991fa309bbfea4b6d9dae31ccdf8e9d452424b6a983e4fdc33468",
+      "byte_identical": true
+    },
+    {
+      "path": "datasets/jailbreak/raw/harmful-behaviors.csv",
+      "upstream_url": "https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors/resolve/886acc352a31533ffbcf4ef22c744658688086fc/data/harmful-behaviors.csv",
+      "bytes": 23116,
+      "local_sha256": "4a8ec6832056b631eb092dccc60d37a61c3d441268268888b3d006288afeffa1",
+      "upstream_sha256": "4a8ec6832056b631eb092dccc60d37a61c3d441268268888b3d006288afeffa1",
+      "byte_identical": true
+    }
+  ]
+}

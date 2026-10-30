@@ -1,0 +1,16 @@
+{
+  "type": "tfidf_logistic_regression",
+  "vectorizer": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "sublinear_tf": true,
+    "strip_accents": "unicode"
+  },
+  "classifier": {
+    "solver": "liblinear",
+    "max_iter": 2000,
+    "random_state": 42
+  }
+}

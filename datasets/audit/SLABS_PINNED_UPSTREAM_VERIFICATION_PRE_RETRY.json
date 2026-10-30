@@ -1,0 +1,10 @@
+{
+  "audit_type": "pinned_upstream_bytes_and_conflict_verification",
+  "revision": "002a9dd",
+  "upstream_url": "https://huggingface.co/datasets/S-Labs/prompt-injection-dataset/resolve/002a9dd/data/train.csv",
+  "status": "UPSTREAM_FETCH_FAILED",
+  "training_eligible": false,
+  "error_type": "URLError",
+  "error": "<urlopen error [Errno -3] Temporary failure in name resolution>",
+  "decision_note": "Network or upstream failure is not evidence of source integrity; source remains blocked."
+}

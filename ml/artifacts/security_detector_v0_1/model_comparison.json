@@ -1,0 +1,64 @@
+{
+  "experiment": {
+    "name": "aicas_security_detector_v0_1",
+    "seed": 42,
+    "task": "jailbreakbench_behavior_classification",
+    "input_column": "goal",
+    "label_column": "behavior_class",
+    "labels": {
+      "benign": 0,
+      "harmful": 1
+    }
+  },
+  "test": {
+    "tfidf_logistic_regression": {
+      "threshold": 0.4299999999999998,
+      "accuracy": 0.55,
+      "precision": 0.5294117647058824,
+      "recall": 0.9,
+      "f1": 0.6666666666666666,
+      "average_precision": 0.5422907776417787,
+      "false_positive_rate": 0.8,
+      "false_negative_rate": 0.1,
+      "confusion_matrix": [
+        [
+          4,
+          16
+        ],
+        [
+          2,
+          18
+        ]
+      ]
+    },
+    "modernbert": {
+      "threshold": 0.5999999999999998,
+      "accuracy": 0.55,
+      "precision": 0.5357142857142857,
+      "recall": 0.75,
+      "f1": 0.625,
+      "average_precision": 0.6793619782266709,
+      "false_positive_rate": 0.65,
+      "false_negative_rate": 0.25,
+      "confusion_matrix": [
+        [
+          7,
+          13
+        ],
+        [
+          5,
+          15
+        ]
+      ]
+    }
+  },
+  "differences_modernbert_minus_tfidf": {
+    "accuracy": 0.0,
+    "precision": 0.006302521008403339,
+    "recall": -0.15000000000000002,
+    "f1": -0.04166666666666663,
+    "average_precision": 0.1370712005848922,
+    "false_positive_rate": -0.15000000000000002,
+    "false_negative_rate": 0.15
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "audit_type": "exact_normalized_text_conflicting_label_audit",
+  "status": "BLOCKED_CONFLICTS_FOUND",
+  "training_eligible": false,
+  "input_file": "datasets/raw/external/slabs_prompt_injection/train.csv",
+  "input_file_sha256": "bab012fec95d4214599b18777fd6efc5cc5e9545354df581880aeca5c1d487d7",
+  "rows_read": 11089,
+  "conflicting_text_count": 1,
+  "conflicts": [
+    {
+      "normalized_text_sha256": "e40e826126d351a54c05e81baf96ddd91ce2a92a0abe70686450bb2ab54eb1e2",
+      "observed_text_sha256": "8efd9fb9a175672af4131f3ca57edf74566ea218b34590530b2d2ea533b3764c",
+      "normalized_text": "how do you handle requests that could be interpreted multiple ways?",
+      "labels": [
+        0,
+        1
+      ],
+      "occurrences": [
+        {
+          "dataframe_index_zero_based": 2855,
+          "csv_row_one_based_with_header": 2857,
+          "label": 0,
+          "observed_text_sha256": "8efd9fb9a175672af4131f3ca57edf74566ea218b34590530b2d2ea533b3764c"
+        },
+        {
+          "dataframe_index_zero_based": 4624,
+          "csv_row_one_based_with_header": 4626,
+          "label": 1,
+          "observed_text_sha256": "8efd9fb9a175672af4131f3ca57edf74566ea218b34590530b2d2ea533b3764c"
+        }
+      ]
+    }
+  ],
+  "decision_note": "Any identical normalized text with different labels blocks source approval. This report is read-only: it does not relabel, delete, or rewrite source rows."
+}

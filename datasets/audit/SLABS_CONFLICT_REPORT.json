@@ -1,0 +1,21 @@
+{
+  "dataset": "S-Labs/prompt-injection-dataset",
+  "source_file": "datasets/raw/external/slabs_prompt_injection/train.csv",
+  "status": "BLOCKED_CONFLICTING_LABELS",
+  "training_eligible": false,
+  "conflicting_texts": [
+    {
+      "text_sha256": "8efd9fb9a175672af4131f3ca57edf74566ea218b34590530b2d2ea533b3764c",
+      "labels": [
+        0,
+        1
+      ],
+      "row_numbers": [
+        2857,
+        4626
+      ],
+      "occurrences": 2
+    }
+  ],
+  "raw_sha256": "bab012fec95d4214599b18777fd6efc5cc5e9545354df581880aeca5c1d487d7"
+}

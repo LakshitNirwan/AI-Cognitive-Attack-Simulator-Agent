@@ -1,0 +1,142 @@
+{
+  "experiment": {
+    "name": "aicas_security_detector_v0_1",
+    "seed": 42,
+    "task": "jailbreakbench_behavior_classification",
+    "input_column": "goal",
+    "label_column": "behavior_class",
+    "labels": {
+      "benign": 0,
+      "harmful": 1
+    }
+  },
+  "model": {
+    "name": "answerdotai/ModernBERT-base",
+    "revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+    "max_length": 512,
+    "num_labels": 2
+  },
+  "evaluation_protocol": {
+    "threshold_selection_split": "validation",
+    "final_test_used_for_threshold_selection": false,
+    "dataset_manifest_path": "ml/artifacts/security_detector_v0_1/dataset/manifest.json",
+    "dataset_manifest_sha256": "9eeb377b9e5e3c76d2055d99f6b9eb1674da8c28809ed800b820a8d1ace07a64",
+    "final_test_rows": 40
+  },
+  "validation_threshold_selection": {
+    "threshold": 0.5999999999999998,
+    "accuracy": 0.725,
+    "precision": 0.6666666666666666,
+    "recall": 0.9,
+    "f1": 0.7659574468085106,
+    "average_precision": 0.801827332815664,
+    "false_positive_rate": 0.45,
+    "false_negative_rate": 0.1,
+    "confusion_matrix": [
+      [
+        11,
+        9
+      ],
+      [
+        2,
+        18
+      ]
+    ]
+  },
+  "test": {
+    "threshold": 0.5999999999999998,
+    "accuracy": 0.55,
+    "precision": 0.5357142857142857,
+    "recall": 0.75,
+    "f1": 0.625,
+    "average_precision": 0.6793619782266709,
+    "false_positive_rate": 0.65,
+    "false_negative_rate": 0.25,
+    "confusion_matrix": [
+      [
+        7,
+        13
+      ],
+      [
+        5,
+        15
+      ]
+    ]
+  },
+  "test_metric_uncertainty_95": {
+    "method": "95% Wilson score interval",
+    "precision": {
+      "successes": 15,
+      "trials": 28,
+      "interval": [
+        0.358126892344679,
+        0.7046843001720462
+      ]
+    },
+    "recall": {
+      "successes": 15,
+      "trials": 20,
+      "interval": [
+        0.531299122381256,
+        0.8881382985923343
+      ]
+    },
+    "false_positive_rate": {
+      "successes": 13,
+      "trials": 20,
+      "interval": [
+        0.43285427668523624,
+        0.818808175898918
+      ]
+    }
+  },
+  "device": "cpu",
+  "threshold_analysis": {
+    "selection_metric": "f1",
+    "validation_points": {
+      "zero_false_negative_rate_best": {
+        "threshold": 0.3699999999999999,
+        "accuracy": 0.6,
+        "precision": 0.5555555555555556,
+        "recall": 1.0,
+        "f1": 0.7142857142857143,
+        "average_precision": 0.801827332815664,
+        "false_positive_rate": 0.8,
+        "false_negative_rate": 0.0,
+        "confusion_matrix": [
+          [
+            4,
+            16
+          ],
+          [
+            0,
+            20
+          ]
+        ]
+      },
+      "fpr_at_or_below_0_20_best_recall": {
+        "threshold": 0.6799999999999997,
+        "accuracy": 0.725,
+        "precision": 0.7647058823529411,
+        "recall": 0.65,
+        "f1": 0.7027027027027027,
+        "average_precision": 0.801827332815664,
+        "false_positive_rate": 0.2,
+        "false_negative_rate": 0.35,
+        "confusion_matrix": [
+          [
+            16,
+            4
+          ],
+          [
+            7,
+            13
+          ]
+        ]
+      }
+    },
+    "tested_minimum": 0.1,
+    "tested_maximum": 0.9,
+    "tested_step": 0.01
+  }
+}

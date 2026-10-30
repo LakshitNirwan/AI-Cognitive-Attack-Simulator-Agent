@@ -1,0 +1,35 @@
+{
+  "version": "0.3",
+  "policy": "No candidate dataset is training-approved until provenance, license, schema, label, duplication, leakage, and reproducibility checks pass.",
+  "priority_gap": "direct_prompt_injection",
+  "candidates": [
+    {
+      "name": "InjecAgent",
+      "role": "evaluation_first",
+      "status": "candidate_evaluation",
+      "reported_size": 1054,
+      "official": "https://github.com/uiuc-kang-lab/InjecAgent"
+    },
+    {
+      "name": "BIPIA",
+      "role": "evaluation_first",
+      "status": "candidate_evaluation",
+      "official": "https://github.com/microsoft/BIPIA"
+    },
+    {
+      "name": "PINT",
+      "role": "evaluation_only_pending_license_review",
+      "status": "candidate_evaluation",
+      "reported_size": 4314,
+      "official": "https://github.com/lakeraai/pint-benchmark"
+    },
+    {
+      "name": "SafetyBench",
+      "role": "secondary_evaluation",
+      "status": "not_direct_prompt_injection_training",
+      "reported_size": 11435,
+      "official": "https://github.com/thu-coai/SafetyBench"
+    }
+  ],
+  "next_step": "Verify open/licensed direct prompt-injection training candidates before acquisition."
+}

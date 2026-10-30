@@ -1,0 +1,185 @@
+{
+  "report_version": "1.0",
+  "generated_utc": "2026-10-17T06:47:57.107036+00:00",
+  "purpose": "Phase 1 dataset readiness checkpoint; inventory is not blanket training approval.",
+  "raw_data_policy": "Read-only inventory. No raw file is rewritten, relabeled, or removed.",
+  "datasets": {
+    "JailbreakBench": {
+      "path": "datasets/jailbreak/processed/jailbreakbench_master.csv",
+      "task": "benign-versus-harmful behavior classification; not a generic injection label",
+      "decision": "CONDITIONAL_TASK_SPECIFIC_USE",
+      "reason": "200 local rows; 9 normalized exact overlaps between harmful goals and HarmBench behaviors; preserve source identity and group overlap before splitting.",
+      "local_artifact": {
+        "path": "datasets/jailbreak/processed/jailbreakbench_master.csv",
+        "exists": true,
+        "bytes": 58005,
+        "sha256": "e5548ed13b191c56483aba0e2e3a32e9c0947ee0def6195bb17b5bb5aad5855c",
+        "format": "csv",
+        "rows": 200,
+        "columns": [
+          "record_id",
+          "source_dataset",
+          "source_file",
+          "behavior_class",
+          "original_index",
+          "goal",
+          "target",
+          "behavior",
+          "category",
+          "source"
+        ],
+        "null_cells": 0,
+        "duplicate_full_rows": 0
+      }
+    },
+    "HarmBench": {
+      "path": "datasets/benchmark/harmbench/processed/harmbench_behaviors_master.csv",
+      "task": "harmful-behavior evaluation/classification; not a generic prompt-injection label",
+      "decision": "CONDITIONAL_TASK_SPECIFIC_USE",
+      "reason": "400 local behaviors; source revision/complete-release pinning remains necessary; missing optional metadata must not be converted into labels.",
+      "local_artifact": {
+        "path": "datasets/benchmark/harmbench/processed/harmbench_behaviors_master.csv",
+        "exists": true,
+        "bytes": 234473,
+        "sha256": "847b50cd5e3b4d6a3814cb204320a030a1518dcb2599209e4f7fbe05a29d16d1",
+        "format": "csv",
+        "rows": 400,
+        "columns": [
+          "record_id",
+          "source_dataset",
+          "source_file",
+          "benchmark_split",
+          "behavior_id",
+          "behavior",
+          "functional_category",
+          "semantic_category",
+          "tags",
+          "context_string"
+        ],
+        "null_cells": 500,
+        "duplicate_full_rows": 0
+      }
+    },
+    "IndiBias": {
+      "path": "datasets/bias/indibias/processed/indibias_master.csv",
+      "task": "bias/fairness evaluation",
+      "decision": "EVALUATION_FIRST",
+      "reason": "561 locally collected sample rows; do not treat this sample as the complete published dataset or collapse paired-context semantics.",
+      "local_artifact": {
+        "path": "datasets/bias/indibias/processed/indibias_master.csv",
+        "exists": true,
+        "bytes": 352122,
+        "sha256": "b124726c588132261020619f7f66a9093194f70d3c17d9dc4b450ea70244b7ce",
+        "format": "csv",
+        "rows": 561,
+        "columns": [
+          "record_id",
+          "source_dataset",
+          "source_file",
+          "dataset_scope",
+          "source_row_id",
+          "original_index",
+          "bias_type",
+          "stereo_antistereo",
+          "english_more",
+          "english_less",
+          "hindi_more",
+          "hindi_less"
+        ],
+        "null_cells": 0,
+        "duplicate_full_rows": 0
+      }
+    },
+    "DefAn": {
+      "path": "datasets/hallucination/defan/processed/defan_aicas_master.csv",
+      "task": "reference-grounded factuality/output reliability",
+      "decision": "REFERENCE_GROUNDED_SUBSET_ONLY",
+      "reason": "1,080 records lack original reference answers; 648 normalized duplicate questions need grouping before splits; do not fabricate answers.",
+      "local_artifact": {
+        "path": "datasets/hallucination/defan/processed/defan_aicas_master.csv",
+        "exists": true,
+        "bytes": 14293416,
+        "sha256": "c9285bc04e2a1e38e006cdbfcebfb8c61e1a4819a72b1c5cbb9ae2d122fb3bb2",
+        "format": "csv",
+        "rows": 70793,
+        "columns": [
+          "record_id",
+          "source",
+          "source_file",
+          "domain",
+          "question",
+          "question_type",
+          "original_reference_answer",
+          "reference_answer",
+          "answer_source",
+          "reference_answer_available",
+          "verification_status"
+        ],
+        "null_cells": 3240,
+        "duplicate_full_rows": 0
+      }
+    },
+    "AgentDojo": {
+      "path": "datasets/benchmark/agentdojo/raw/agentdojo_v1_2_2_injection_tasks.json",
+      "task": "stateful agentic/indirect prompt-injection evaluation",
+      "decision": "EVALUATION_FIRST",
+      "reason": "35 scenarios are small and environment/state dependent; retain scenario and task semantics rather than flattening to generic text labels.",
+      "local_artifact": {
+        "path": "datasets/benchmark/agentdojo/raw/agentdojo_v1_2_2_injection_tasks.json",
+        "exists": true,
+        "bytes": 13537,
+        "sha256": "94d1fc5d57893eb3834bd584f2a1636bb130f9353f648bbed2e54f40dcacc4e0",
+        "format": "json",
+        "top_level_type": "list",
+        "records_or_scenarios": 35
+      }
+    },
+    "SLabsPromptInjection": {
+      "path": "datasets/raw/external/slabs_prompt_injection/train.csv",
+      "task": "direct prompt-injection detection",
+      "decision": "BLOCKED_CONFLICTING_LABELS",
+      "reason": "One normalized text has both labels 0 and 1 in both the local and pinned upstream files. Publisher clarification or a corrected revision is required.",
+      "local_artifact": {
+        "path": "datasets/raw/external/slabs_prompt_injection/train.csv",
+        "exists": true,
+        "bytes": 747016,
+        "sha256": "bab012fec95d4214599b18777fd6efc5cc5e9545354df581880aeca5c1d487d7",
+        "format": "csv",
+        "rows": 11089,
+        "columns": [
+          "text",
+          "label"
+        ],
+        "null_cells": 0,
+        "duplicate_full_rows": 37
+      }
+    }
+  },
+  "external_source_gate": {
+    "name": "S-Labs/prompt-injection-dataset",
+    "pinned_revision": "002a9dd",
+    "manifest_training_eligible": false,
+    "local_conflicting_text_count": 1,
+    "pinned_verification_status": "PINNED_SOURCE_HAS_CONFLICTS",
+    "pinned_verification_training_eligible": false,
+    "decision": "BLOCKED",
+    "decision_reason": "Pinned upstream bytes match the supplied local file and contain the same contradictory labels; keep the source blocked pending authoritative label-quality resolution."
+  },
+  "cross_source_findings": {
+    "jailbreakbench_harmbench_normalized_exact_overlap": 9,
+    "slabs_jailbreakbench_normalized_exact_overlap": 0,
+    "slabs_harmbench_normalized_exact_overlap": 0,
+    "slabs_near_duplicate_audit_threshold": 0.82,
+    "slabs_near_duplicate_candidates_reported": 0,
+    "caveat": "The S-Labs cross-source findings are based on the supplied local training split and character n-gram candidate discovery. Zero candidates do not prove absence of semantic overlap or leakage."
+  },
+  "release_gates_not_yet_satisfied": [
+    "Resolve the contradictory S-Labs labels with authoritative publisher documentation or a corrected immutable revision; the pinned bytes are verified but the source remains blocked.",
+    "Pin the exact HarmBench source revision and document artifact-specific redistribution terms.",
+    "Record artifact-specific licensing/usage decisions for each dataset before redistribution or external release.",
+    "Define task-specific target labels and split grouping rules before constructing a unified ML dataset.",
+    "Group overlapping JailbreakBench/HarmBench examples and duplicate DefAn questions before splitting.",
+    "Keep IndiBias and AgentDojo evaluation-first unless a separately justified task-specific training design is approved.",
+    "Build a reproducible, source-aware train/validation/test manifest and verify that raw inputs remain unchanged."
+  ]
+}
